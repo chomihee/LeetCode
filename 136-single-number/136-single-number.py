@@ -1,5 +1,6 @@
+from collections import Counter
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        for i in range(len(nums)):
-            if nums.count(nums[i]) == 1:
-                return nums[i]
+        counter = Counter(nums)
+        return counter.most_common()[-1][0]
